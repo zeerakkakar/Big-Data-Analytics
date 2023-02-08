@@ -1,0 +1,42 @@
+--Log into docker account
+docker login 
+
+--Pulling mysql image 
+docker pull my sql
+
+--Creating mysql container  
+docker run --name zeerak_connection -p 3306:3306 -e MYSQL_ROOT_PASSWORD=zak1996 -d mysql
+
+--Check which container is running
+docker ps
+
+--Opening mysql in docker container
+docker exec -it zeerak_connection/bin/bash
+mysql -uroot -p -A
+
+--Creating database inside mysql container
+CREATE DATABASE hr;
+
+--Accessing database
+USE hr
+
+--Inside database creating table
+CREATE TABLE employees(
+Name varchar(225), 
+Address varchar(225),
+City varchar(25));
+
+--Show Table
+DESC CANDIDATE
+
+--Exit the mysql container
+EXIT
+
+--Stopping docker mysql image
+docker stop TN_connect
+
+  
+
+
+
+
